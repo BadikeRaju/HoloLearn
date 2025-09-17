@@ -63,7 +63,7 @@ function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="h-screen bg-black text-white overflow-hidden">
       {/* Animated Grid Background */}
       <div className="fixed inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -114,9 +114,9 @@ function AuthPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex min-h-screen">
+      <div className="flex h-screen">
         {/* Left Side - Project Information */}
-        <div className="hidden lg:flex lg:w-1/2 bg-black relative overflow-hidden h-screen">
+        <div className="hidden lg:flex lg:w-1/2 bg-black relative overflow-hidden h-full">
           {/* Animated Background Elements */}
           <div className="absolute inset-0">
             {/* Floating Brain Icons */}
@@ -159,64 +159,64 @@ function AuthPage() {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col justify-center items-start text-left px-56 py-12">
+          <div className="relative z-10 flex flex-col justify-start items-start text-left pl-80 pr-8 pt-8">
             {/* Logo */}
-            <div className="mb-8 group">
+            <div className="mb-4 group">
               <div className="relative">
-                <Brain className="w-20 h-20 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
+                <Brain className="w-12 h-12 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-white rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
               </div>
-              <h1 className="text-5xl font-bold text-white mt-4 tracking-tight">
+              <h1 className="text-3xl font-bold text-white mt-2 tracking-tight">
                 HoloLearn
               </h1>
             </div>
 
             {/* Animated Features */}
-            <div className="space-y-6 w-full max-w-sm">
-              <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Brain className="w-6 h-6 text-blue-400" />
+            <div className="space-y-3 w-full max-w-sm">
+              <div className="flex items-center space-x-3 p-2 bg-white/5 rounded-md backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                <div className="w-8 h-8 bg-blue-500/20 rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Brain className="w-4 h-4 text-blue-400" />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-white font-semibold">AI-Powered Learning</h3>
-                  <p className="text-gray-300 text-sm">Offline AI tutor for personalized education</p>
+                  <h3 className="text-white font-medium text-sm">AI-Powered Learning</h3>
+                  <p className="text-gray-300 text-xs">Offline AI tutor for personalized education</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Eye className="w-6 h-6 text-green-400" />
+              <div className="flex items-center space-x-3 p-2 bg-white/5 rounded-md backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                <div className="w-8 h-8 bg-green-500/20 rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Eye className="w-4 h-4 text-green-400" />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-white font-semibold">AR Holograms</h3>
-                  <p className="text-gray-300 text-sm">Interactive 3D learning experiences</p>
+                  <h3 className="text-white font-medium text-sm">AR Holograms</h3>
+                  <p className="text-gray-300 text-xs">Interactive 3D learning experiences</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Languages className="w-6 h-6 text-purple-400" />
+              <div className="flex items-center space-x-3 p-2 bg-white/5 rounded-md backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                <div className="w-8 h-8 bg-purple-500/20 rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Languages className="w-4 h-4 text-purple-400" />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-white font-semibold">Multilingual</h3>
-                  <p className="text-gray-300 text-sm">22+ Indian languages supported</p>
+                  <h3 className="text-white font-medium text-sm">Multilingual</h3>
+                  <p className="text-gray-300 text-xs">22+ Indian languages supported</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Users className="w-6 h-6 text-orange-400" />
+              <div className="flex items-center space-x-3 p-2 bg-white/5 rounded-md backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+                <div className="w-8 h-8 bg-orange-500/20 rounded-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Users className="w-4 h-4 text-orange-400" />
                 </div>
                 <div className="text-left">
-                  <h3 className="text-white font-semibold">Accessible</h3>
-                  <p className="text-gray-300 text-sm">Designed for all learning abilities</p>
+                  <h3 className="text-white font-medium text-sm">Accessible</h3>
+                  <p className="text-gray-300 text-xs">Designed for all learning abilities</p>
                 </div>
               </div>
             </div>
 
             {/* Call to Action */}
-            <div className="mt-12">
-              <div className="inline-flex items-center space-x-2 text-white/80 text-sm">
+            <div className="mt-4">
+              <div className="inline-flex items-center space-x-2 text-white/80 text-xs">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span>Join 250M+ students worldwide</span>
               </div>
@@ -225,29 +225,29 @@ function AuthPage() {
         </div>
 
         {/* Right Side - Authentication Form */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-8 h-screen">
+        <div className="w-full lg:w-1/2 flex items-start justify-center pl-150 pr-10 pt-8 h-full">
           <div className="w-full max-w-md relative z-10">
           {/* Logo */}
-          <div className="text-center mb-6">
-            <div className="flex items-center justify-center space-x-3 mb-4 group">
+          <div className="text-center mb-2">
+            <div className="flex items-center justify-center space-x-2 mb-1 group">
               <div className="relative">
-                <Brain className="w-10 h-10 transition-transform duration-300 group-hover:rotate-12" />
+                <Brain className="w-6 h-6 transition-transform duration-300 group-hover:rotate-12" />
                 <div className="absolute inset-0 bg-white rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl"></div>
               </div>
-              <span className="text-3xl font-bold tracking-tight">HoloLearn</span>
+              <span className="text-xl font-bold tracking-tight">HoloLearn</span>
             </div>
-            <p className="text-gray-400 text-base">
+            <p className="text-gray-400 text-xs">
               {isSignUp ? 'Create your account' : 'Welcome back'}
             </p>
           </div>
 
           {/* Auth Form */}
-          <div className="bg-white bg-opacity-5 backdrop-blur-sm p-6 rounded-2xl border border-white border-opacity-10 hover:border-opacity-20 transition-all duration-500">
+          <div className="bg-white bg-opacity-5 backdrop-blur-sm p-3 rounded-xl border border-white border-opacity-10 hover:border-opacity-20 transition-all duration-500">
             {/* Toggle Buttons */}
-            <div className="flex mb-6 bg-white bg-opacity-5 rounded-lg p-1">
+            <div className="flex mb-2 bg-white bg-opacity-5 rounded-lg p-1">
               <button
                 onClick={() => setIsSignUp(false)}
-                className={`flex-1 py-3 px-4 rounded-md text-sm font-medium transition-all duration-300 ${
+                className={`flex-1 py-1.5 px-2 rounded-md text-xs font-medium transition-all duration-300 ${
                   !isSignUp 
                     ? 'bg-white text-black' 
                     : 'text-gray-400 hover:text-white'
@@ -257,7 +257,7 @@ function AuthPage() {
               </button>
               <button
                 onClick={() => setIsSignUp(true)}
-                className={`flex-1 py-3 px-4 rounded-md text-sm font-medium transition-all duration-300 ${
+                className={`flex-1 py-1.5 px-2 rounded-md text-xs font-medium transition-all duration-300 ${
                   isSignUp 
                     ? 'bg-white text-black' 
                     : 'text-gray-400 hover:text-white'
@@ -268,10 +268,10 @@ function AuthPage() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-1.5">
               {isSignUp && (
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-gray-300">Full Name</label>
+                  <label className="text-xs font-medium text-gray-300">Full Name</label>
                   <div className="relative">
                     <input
                       type="text"
@@ -279,7 +279,7 @@ function AuthPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required={isSignUp}
-                      className="w-full px-4 py-2.5 bg-white bg-opacity-5 border border-white border-opacity-20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-opacity-40 focus:bg-opacity-10 transition-all duration-300"
+                      className="w-full px-3 py-1.5 bg-white bg-opacity-5 border border-white border-opacity-20 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-opacity-40 focus:bg-opacity-10 transition-all duration-300 text-sm"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -287,7 +287,7 @@ function AuthPage() {
               )}
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-300">Email</label>
+                <label className="text-xs font-medium text-gray-300">Email</label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -303,7 +303,7 @@ function AuthPage() {
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-300">Password</label>
+                <label className="text-xs font-medium text-gray-300">Password</label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -327,7 +327,7 @@ function AuthPage() {
 
               {isSignUp && (
                 <div className="space-y-1">
-                  <label className="text-sm font-medium text-gray-300">Confirm Password</label>
+                  <label className="text-xs font-medium text-gray-300">Confirm Password</label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
@@ -365,7 +365,7 @@ function AuthPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-white text-black py-2.5 px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full bg-white text-black py-2 px-4 rounded-md text-sm font-medium transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
               >
                 {isLoading ? (
                   <>
@@ -379,37 +379,37 @@ function AuthPage() {
             </form>
 
             {/* Social Authentication */}
-            <div className="mt-6">
+            <div className="mt-3">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-white border-opacity-20"></div>
                 </div>
-                <div className="relative flex justify-center text-sm">
+                <div className="relative flex justify-center text-xs">
                   <span className="px-2 bg-black text-gray-400">Or continue with</span>
                 </div>
               </div>
 
-              <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="mt-3 grid grid-cols-2 gap-2">
                 <button
                   onClick={() => handleSocialAuth('google')}
-                  className="w-full inline-flex justify-center py-2.5 px-4 border border-white border-opacity-20 rounded-lg bg-white bg-opacity-5 text-sm font-medium text-white hover:bg-opacity-10 hover:border-opacity-40 transition-all duration-300"
+                  className="w-full inline-flex justify-center py-2 px-3 border border-white border-opacity-20 rounded-md bg-white bg-opacity-5 text-xs font-medium text-white hover:bg-opacity-10 hover:border-opacity-40 transition-all duration-300"
                 >
-                  <Chrome className="w-5 h-5" />
-                  <span className="ml-2">Google</span>
+                  <Chrome className="w-4 h-4" />
+                  <span className="ml-1">Google</span>
                 </button>
                 <button
                   onClick={() => handleSocialAuth('github')}
-                  className="w-full inline-flex justify-center py-2.5 px-4 border border-white border-opacity-20 rounded-lg bg-white bg-opacity-5 text-sm font-medium text-white hover:bg-opacity-10 hover:border-opacity-40 transition-all duration-300"
+                  className="w-full inline-flex justify-center py-2 px-3 border border-white border-opacity-20 rounded-md bg-white bg-opacity-5 text-xs font-medium text-white hover:bg-opacity-10 hover:border-opacity-40 transition-all duration-300"
                 >
-                  <Github className="w-5 h-5" />
-                  <span className="ml-2">GitHub</span>
+                  <Github className="w-4 h-4" />
+                  <span className="ml-1">GitHub</span>
                 </button>
               </div>
             </div>
 
             {/* Footer */}
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-400">
+            <div className="mt-3 text-center">
+              <p className="text-xs text-gray-400">
                 {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
                 <button
                   onClick={() => setIsSignUp(!isSignUp)}
@@ -435,7 +435,7 @@ function AuthPage() {
       </div>
     </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes grid-move {
           0% { transform: translate(0, 0); }
           100% { transform: translate(50px, 50px); }

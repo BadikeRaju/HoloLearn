@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import AuthPage from './components/AuthPage';
+import AuthPage from './AuthPage';
 import { 
   Brain, 
   Wifi, 
@@ -768,5 +768,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
