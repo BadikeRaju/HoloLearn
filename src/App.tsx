@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import AuthPage from './components/AuthPage';
 import { 
   Brain, 
   Wifi, 
@@ -43,7 +45,8 @@ import {
   Heart
 } from 'lucide-react';
 
-function App() {
+function HomePage() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -218,6 +221,10 @@ function App() {
     }
   ];
 
+  const handleAuthNavigation = () => {
+    navigate('/auth');
+  };
+
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Animated Grid Background */}
@@ -286,6 +293,13 @@ function App() {
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform -skew-x-12 translate-x-full group-hover:translate-x-0"></div>
             </button>
+            <button 
+              onClick={handleAuthNavigation}
+              className="relative bg-white text-black px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl group overflow-hidden"
+            >
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform -skew-x-12 translate-x-full group-hover:translate-x-0"></div>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -318,6 +332,12 @@ function App() {
             <button className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-gray-200 mt-4">
               Get Started
             </button>
+            <button 
+              onClick={handleAuthNavigation}
+              className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-gray-200 mt-4"
+            >
+              Get Started
+            </button>
           </div>
         </div>
       </nav>
@@ -348,7 +368,10 @@ function App() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-            <button className="group relative bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl overflow-hidden">
+            <button 
+              onClick={handleAuthNavigation}
+              className="group relative bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl overflow-hidden"
+            >
               <span className="relative z-10 flex items-center">
                 Start Learning
                 <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -462,7 +485,10 @@ function App() {
           </div>
 
           <div className="text-center">
-            <button className="group bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl inline-flex items-center overflow-hidden">
+            <button 
+              onClick={handleAuthNavigation}
+              className="group bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl inline-flex items-center overflow-hidden"
+            >
               <span className="relative z-10 flex items-center">
                 Explore Technology
                 <ChevronRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -786,6 +812,15 @@ function App() {
         }
       `}</style>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/auth" element={<AuthPage />} />
+    </Routes>
   );
 }
 
