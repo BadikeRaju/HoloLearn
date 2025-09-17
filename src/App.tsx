@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import AuthPage from './AuthPage';
 import { 
   Brain, 
   Wifi, 
@@ -44,6 +46,191 @@ import {
 } from 'lucide-react';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [activeDemo, setActiveDemo] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  const features = [
+    {
+      icon: Brain,
+      title: "Offline AI Tutor",
+      description: "Lightweight models running locally on low-end smartphones without internet connectivity.",
+      delay: "0ms"
+    },
+    {
+      icon: Users,
+      title: "Sign Language Recognition",
+      description: "Helps hearing-impaired students by translating sign gestures into speech and text.",
+      delay: "100ms"
+    },
+    {
+      icon: Languages,
+      title: "Real-time Multilingual Translation",
+      description: "Supports 10+ Indian languages offline for seamless communication.",
+      delay: "200ms"
+    },
+    {
+      icon: Eye,
+      title: "AR Learning with Holograms",
+      description: "Interactive and visual lessons for better engagement and understanding.",
+      delay: "300ms"
+    },
+    {
+      icon: Mic,
+      title: "Voice + Image Teaching",
+      description: "Guided learning specifically designed for visually impaired students.",
+      delay: "400ms"
+    },
+    {
+      icon: Target,
+      title: "Adaptive Curriculum",
+      description: "Personalized learning paths based on student's pace and ability.",
+      delay: "500ms"
+    }
+  ];
+
+  const stats = [
+    { number: "250M+", label: "Students lacking quality education", icon: Users },
+    { number: "22", label: "Official languages supported", icon: Languages },
+    { number: "19,000+", label: "Regional dialects covered", icon: Globe },
+    { number: "0", label: "Internet dependency", icon: Wifi }
+  ];
+
+  const techHighlights = [
+    {
+      title: "Edge AI Processing",
+      description: "Advanced neural networks optimized for mobile devices",
+      icon: Zap,
+      progress: 95
+    },
+    {
+      title: "Secure Offline Storage",
+      description: "Encrypted local data with privacy-first architecture",
+      icon: Shield,
+      progress: 100
+    },
+    {
+      title: "Multi-modal Interface",
+      description: "Voice, gesture, and visual input recognition",
+      icon: Headphones,
+      progress: 88
+    },
+    {
+      title: "Adaptive Display",
+      description: "Dynamic UI that adjusts to user needs and abilities",
+      icon: Monitor,
+      progress: 92
+    }
+  ];
+
+  const demos = [
+    {
+      title: "Sign Language Recognition",
+      description: "Real-time translation of sign language to speech and text",
+      gif: "https://images.pexels.com/photos/7092613/pexels-photo-7092613.jpeg?auto=compress&cs=tinysrgb&w=800",
+      features: ["Real-time processing", "99% accuracy", "Offline capable"]
+    },
+    {
+      title: "AR Holographic Learning",
+      description: "Interactive 3D models and immersive educational content",
+      gif: "https://images.pexels.com/photos/8566473/pexels-photo-8566473.jpeg?auto=compress&cs=tinysrgb&w=800",
+      features: ["3D visualization", "Interactive models", "Engaging content"]
+    },
+    {
+      title: "Multilingual Translation",
+      description: "Seamless translation across 22 Indian languages",
+      gif: "https://images.pexels.com/photos/7092613/pexels-photo-7092613.jpeg?auto=compress&cs=tinysrgb&w=800",
+      features: ["22 languages", "Instant translation", "Cultural context"]
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Priya Sharma",
+      role: "Rural Teacher, Rajasthan",
+      content: "HoloLearn has transformed how I teach. My students are more engaged and learning faster than ever before.",
+      rating: 5
+    },
+    {
+      name: "Dr. Amit Kumar",
+      role: "Education Researcher",
+      content: "The offline capability and multilingual support make this a game-changer for rural education in India.",
+      rating: 5
+    },
+    {
+      name: "Meera Patel",
+      role: "Parent",
+      content: "My hearing-impaired daughter can now learn independently. The sign language recognition is incredible.",
+      rating: 5
+    }
+  ];
+
+  const architectureComponents = [
+    {
+      title: "AI Engine",
+      description: "Lightweight neural networks optimized for mobile devices",
+      icon: Cpu,
+      connections: ["Language Processor", "Vision System"]
+    },
+    {
+      title: "Language Processor",
+      description: "Real-time multilingual translation and speech recognition",
+      icon: Languages,
+      connections: ["AI Engine", "User Interface"]
+    },
+    {
+      title: "Vision System",
+      description: "AR rendering and sign language recognition",
+      icon: Eye,
+      connections: ["AI Engine", "User Interface"]
+    },
+    {
+      title: "Local Database",
+      description: "Encrypted offline storage for learning content",
+      icon: Database,
+      connections: ["Security Layer"]
+    },
+    {
+      title: "Security Layer",
+      description: "Privacy-first encryption and data protection",
+      icon: Lock,
+      connections: ["Local Database", "User Interface"]
+    },
+    {
+      title: "User Interface",
+      description: "Adaptive interface for accessibility needs",
+      icon: Monitor,
+      connections: ["Language Processor", "Vision System", "Security Layer"]
+    }
+  ];
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -282,10 +469,10 @@ function App() {
                 <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </a>
             ))}
-            <button className="relative bg-white text-black px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl group overflow-hidden">
+            <Link to="/auth" className="relative bg-white text-black px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl group overflow-hidden inline-block">
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 transform -skew-x-12 translate-x-full group-hover:translate-x-0"></div>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -315,9 +502,9 @@ function App() {
                 {item}
               </a>
             ))}
-            <button className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-gray-200 mt-4">
+            <Link to="/auth" className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-gray-200 mt-4 inline-block text-center">
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -348,13 +535,13 @@ function App() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-            <button className="group relative bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl overflow-hidden">
+            <Link to="/auth" className="group relative bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl overflow-hidden inline-block">
               <span className="relative z-10 flex items-center">
                 Start Learning
                 <ArrowRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 transform -skew-x-12 translate-x-full group-hover:translate-x-0"></div>
-            </button>
+            </Link>
             <button className="group border border-white border-opacity-30 px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-white hover:bg-opacity-5 hover:border-opacity-60 flex items-center">
               <Play className="mr-3 w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
               Watch Demo
@@ -462,13 +649,13 @@ function App() {
           </div>
 
           <div className="text-center">
-            <button className="group bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl inline-flex items-center overflow-hidden">
+            <Link to="/auth" className="group bg-white text-black px-10 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl inline-flex items-center overflow-hidden">
               <span className="relative z-10 flex items-center">
                 Explore Technology
                 <ChevronRight className="ml-3 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 transform -skew-x-12 translate-x-full group-hover:translate-x-0"></div>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
