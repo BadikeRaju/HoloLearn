@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Brain, 
   Eye, 
@@ -20,6 +20,7 @@ function AuthPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -56,6 +57,9 @@ function AuthPage() {
     
     console.log('Form submitted:', formData);
     setIsLoading(false);
+    
+    // Navigate to dashboard after successful authentication
+    navigate('/dashboard');
   };
 
   const handleSocialAuth = (provider: string) => {
